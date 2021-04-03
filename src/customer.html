@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Customer</title>
+
+</head>
+<body>
+<form action="#">
+<label>Search Stock</label><br/>
+<select id="selectStock" name="selectStock">
+	<option value="">Select Stock</option>
+	<option value="DBS">DBS</option>
+	<option value="Rel">Relience</option>
+	<option value="SBI">SBI</option>
+</select><br/><br/>
+<label>Order Type</label><br/>
+<select id="orderType" name="orderType" onchange="enable(this.value)">
+	<option value="">Select Order Type</option>
+	<option value="Limit">Limit</option>
+	<option value="Market">Market</option>	
+</select><br/><br/>
+<label>Price</label><br/>
+<input type="text" name="price" id="price" disabled="disabled"/> <br/><br/>
+<label>Quantity</label><br/>
+<input type="text" name="quantity" id="quantity"/> <br/><br/>
+<button type="button" id="PlaceOrder" onclick="validation()">Place Order</button>
+</form>
+</body>
+<script type="text/javascript">
+function enable(v){
+	
+	if(v=="Limit"){
+		document.getElementById("price").disabled = false;
+	}
+	else{
+		document.getElementById("price").disabled = true;
+		document.getElementById("price").value="";
+	}
+}
+
+function validation(){
+	
+	if(document.getElementById("selectStock").value==""){
+		document.getElementById("price").style.color = 'red';
+	}
+if(document.getElementById("orderType").value==""){
+	document.getElementById("orderType").style.color = 'red';
+	}
+if(document.getElementById("quantity").value==""){
+	document.getElementById("quantity").style.color = 'red';
+}
+}
+</script>
+</html>
